@@ -26,8 +26,8 @@
 
 ParticlesWidget::ParticlesWidget() : QGLWidget(QGLFormat(QGL::SampleBuffers))
 {
-  // system = new Snow();
-   system = new FaterFall();
+  system = new Snow();
+   // system = new FaterFall();
 
   QObject::connect(
       system, SIGNAL(calculationsDone()), this, SLOT(update()));
