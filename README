@@ -1,1 +1,6 @@
-Particles system demostration. Faterfall and snow implemented.
+Particles system demo.
+
+Requires Qt with OpenGl support. 
+
+Faterfall and snow modes implemented. You can switch
+between them using mouseclick. 

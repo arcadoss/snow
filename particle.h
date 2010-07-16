@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  particle.h
- *
- *    Description:  bla
- *
- *        Version:  1.0
- *        Created:  29.06.2010 19:25:15
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Sergey Dovgal (), arcadoss@gmail.com
- *        Company:  
- *
- * =====================================================================================
- */
-
 #ifndef SNOWFLAKE_Q29Z55V7
 #define SNOWFLAKE_Q29Z55V7
 
@@ -31,18 +13,16 @@ namespace Supply {
 }
 
 class Particle {
-public:
-  Particle() {};
-  virtual ~Particle () {};
+ public:
+  virtual ~Particle () {}
 
   double x, y;
   int radius;
   QColor color;
-
 };
 
 class SnowFlake : public Particle {
-public:
+ public:
   static const int kMaxLifeTime = 2000;
   static const int kMaxRadius = 11;
 

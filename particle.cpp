@@ -1,26 +1,6 @@
-/*
- * =====================================================================================
- *
- *       Filename:  particle.cpp
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  30.06.2010 14:39:26
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Sergey Dovgal (), arcadoss@gmail.com
- *        Company:  
- *
- * =====================================================================================
- */
-
 #include "particle.h"
 
 #include <cmath>
-
-// const Supply::RAND_MAX_F = RAND_MAX * 1.0; 
 
 double Supply::Random(double up, double down) {
   /*
@@ -88,3 +68,4 @@ WaterDrop & WaterDrop::operator= (WaterDrop const & r) {
   }
   return *this;
 }
+
