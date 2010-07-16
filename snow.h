@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  snow.h
- *
- *    Description:  bla
- *
- *        Version:  1.0
- *        Created:  29.06.2010 19:35:30
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Sergey Dovgal (), arcadoss@gmail.com
- *        Company:  
- *
- * =====================================================================================
- */
-
 #ifndef ACTOR_JJ9XWUGY
 #define ACTOR_JJ9XWUGY
 
