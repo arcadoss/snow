@@ -1,21 +1,3 @@
-/*
- * =====================================================================================
- *
- *       Filename:  snow.cpp
- *
- *    Description:  
- *
- *        Version:  1.0
- *        Created:  30.06.2010 14:39:04
- *       Revision:  none
- *       Compiler:  gcc
- *
- *         Author:  Sergey Dovgal (), arcadoss@gmail.com
- *        Company:  
- *
- * =====================================================================================
- */
-
 #include "snow.h"
 #include <algorithm>
 
@@ -30,11 +12,9 @@ Snow::Snow()
   particlesCount += newFlakes;
 
   for ( ; newFlakes > 0; newFlakes--) {
-    Particle * particle = new SnowFlake(1.0);
-    particles_.append(particle);
+    particles.append(new SnowFlake(1.0));
   }
 }
-
 
 bool Snow::touch(SnowFlake * flake)
 {
@@ -75,17 +55,17 @@ bool Snow::touch(SnowFlake * flake)
 
 void Snow::onTimeout()
 {
-  List::iterator i = particles_.begin();
+  List::iterator i = particles.begin();
   List::iterator prev;
   SnowFlake * flake;
 
-  while (i != particles_.end()) {
+  while (i != particles.end()) {
     flake = dynamic_cast<SnowFlake *>(*i);
     prev = i++;
 
     if (touch(flake)) {
       delete flake;
-      particles_.erase(prev);
+      particles.erase(prev);
       --particlesCount;
     }
   }
@@ -96,12 +76,11 @@ void Snow::onTimeout()
   particlesCount += newFlakes;
 
   for ( ; newFlakes > 0; newFlakes--) {
-    particles_.append(new SnowFlake());
+    particles.append(new SnowFlake());
   }
 
   emit calculationsDone();
 }
-
 
 FaterFall::FaterFall()
 {
@@ -109,19 +88,18 @@ FaterFall::FaterFall()
     WaterDrop * newDrop = new WaterDrop(1.0, Supply::Random(1.0));
     newDrop->speedY = 0.0;
     newDrop->drifting = true;
-    particles_.append(newDrop);
-
+    particles.append(newDrop);
   }
   particlesCount = kMaxParticlesCount / 2;
 }
 
 void FaterFall::onTimeout()
 {
-  List::iterator i = particles_.begin();
+  List::iterator i = particles.begin();
   List::iterator prev;
   WaterDrop * drop;
 
-  while (i != particles_.end()) {
+  while (i != particles.end()) {
     drop = dynamic_cast<WaterDrop *>(*i);
     prev = i++;
 
@@ -137,11 +115,11 @@ void FaterFall::onTimeout()
       for ( ; sparkles > 0; sparkles--) {
         WaterDrop * newDrop = new WaterDrop(drop->y, drop->x);
         newDrop->speedY *= Supply::Random(kJumpFactor, 1.0);
-        particles_.append(newDrop);
+        particles.append(newDrop);
       }
 
       delete drop;
-      particles_.erase(prev);
+      particles.erase(prev);
     }
   }
 
@@ -204,4 +182,3 @@ bool FaterFall::touchGravity(WaterDrop * drop)
 
   return false;
 }
-
